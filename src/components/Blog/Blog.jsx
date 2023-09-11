@@ -30,7 +30,7 @@ const Blog = ({ blog, handleAddToBookMarks }) => {
             {reading_time >= 10 ? `${reading_time}` : `0${reading_time}`} min
             read
           </span>
-          <button onClick={handleAddToBookMarks}>
+          <button onClick={() => handleAddToBookMarks(blog)}>
             <i className="fa-solid fa-bookmark"></i>
           </button>
         </div>
