@@ -9,12 +9,21 @@ function App() {
     const newBookMarks = [...bookMarks, blog];
     setBooksMarks(newBookMarks);
   };
+
+  const [time, setTime] = useState(0);
+  const handleAddTime = (readtime) => {
+    const newNum = time + readtime;
+    setTime(parseInt(newNum));
+  };
   return (
     <div className="container mx-auto px-5 lg:px-0">
       <Header></Header>
       <div className="flex flex-col md:flex-row gap-10">
-        <Blogs handleAddToBookMarks={handleAddToBookMarks}></Blogs>
-        <Bookmarks bookMarks={bookMarks}></Bookmarks>
+        <Blogs
+          handleAddToBookMarks={handleAddToBookMarks}
+          handleAddTime={handleAddTime}
+        ></Blogs>
+        <Bookmarks bookMarks={bookMarks} time={time}></Bookmarks>
       </div>
     </div>
   );
